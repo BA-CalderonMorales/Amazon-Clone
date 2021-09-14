@@ -1,11 +1,11 @@
-import './App.css';
+import './app.css';
+import Header from './components/header/header';
 
 function App() {
   return (
     // BEM naming convention
     <div className="app">
-      Hello World
-      {/* Header - Nav */}
+      <Header />
       {/* Home - Body */}
     </div>
   );
