@@ -5,7 +5,7 @@ import { useStateValue } from '../../stateprovider';
 import CheckoutProduct from '../checkoutproduct/checkoutproduct';
 
 const Checkout = ({motion}) => {
-    const [{basket}, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
 
     return (
         <motion.div
@@ -17,8 +17,9 @@ const Checkout = ({motion}) => {
                     <img 
                     className="checkout__ad" 
                     src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonServices/Site/US/Product/FBA/Outlet/Merchandising/slsm_bottom-banner_1500x120_v2.jpg" 
-                    alt="" />
+                    alt="Amazon advertisement" />
                     <div>
+                        <h3>Hello, {user?.email}</h3>
                         <h2 className="checkout__title">
                             Your shopping basket
                         </h2>

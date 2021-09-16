@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "firebase": "^9.0.2",
     "firebase-admin": "^9.11.1",
+    "firebase-tools": "^9.18.0",
     "framer-motion": "^4.1.17",
     "react": "^17.0.2",
     "react-currency-format": "^1.0.0",
