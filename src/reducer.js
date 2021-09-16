@@ -1,7 +1,8 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from './constants/constants';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, SET_USER } from './constants/constants';
 
 export const initialState = {
-    basket: []
+    basket: [],
+    user: null
 };
 
 // Selector
@@ -34,6 +35,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 basket: newBasket
+            }
+        case SET_USER:
+            return {
+                ...state,
+                user: action.user
             }
         default:
             return state;
