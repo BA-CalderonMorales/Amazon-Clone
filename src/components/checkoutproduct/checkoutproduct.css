@@ -2,6 +2,14 @@
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;
+  transition: 0.3s linear;
+  transform: scale(0.99);
+}
+
+.checkoutProduct:hover {
+  transition: 0.3s linear;
+  transform: scale(1);
+  cursor: pointer;
 }
 
 .checkoutProduct__info {

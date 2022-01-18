@@ -4,15 +4,24 @@ import Header from './components/header/header';
 import Home from './components/home/home';
 import Checkout from './components/checkout/checkout';
 import Login from './components/login/login';
+import Payment from './components/payment/payment';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './stateprovider';
 import { SET_USER } from './constants/constants';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+
+const promise = loadStripe(
+  "pk_test_51JaPAuAR0tEdIxcmJiglvKkNfVEAZyNrGIrH90FfNlEShDBu7rOEDqM7T7aw7G44f5v8u1DUOlqB7ldJa0WmUWjl00eS68IB59"
+);
+
 
 function App() {
   const[{}, dispatch] = useStateValue();
-  
+
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
       console.log("The user is >>> ", authUser)
@@ -46,6 +55,13 @@ function App() {
               <Header motion={motion} />
               <Checkout motion={motion} />
             </Route>
+            <Route path="/payment">
+              <Header motion={motion} />
+              <Elements stripe={promise}>
+                <Payment motion={motion} />
+              </Elements>
+            </Route>
+
             {/* Default Route stays at the bottom */}
             <Route path="/">
               <Header motion={motion} />
